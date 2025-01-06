@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melissa and Davey Wedding Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #a9a9a9; 
+			color: white; /* Change text color to white for contrast */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Fullscreen modal styles */
+        .fullscreen-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .fullscreen-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="gallery">
+    <img src="https://via.placeholder.com/600x400" alt="Image 1">
+    <img src="https://via.placeholder.com/600x400" alt="Image 2">
+    <img src="https://via.placeholder.com/600x400" alt="Image 3">
+    <img src="https://via.placeholder.com/600x400" alt="Image 4">
+    <img src="https://via.placeholder.com/600x400" alt="Image 5">
+    <img src="https://via.placeholder.com/600x400" alt="Image 6">
+	    <img src="https://via.placeholder.com/600x400" alt="Image 1">
+    <img src="https://via.placeholder.com/600x400" alt="Image 2">
+    <img src="https://via.placeholder.com/600x400" alt="Image 3">
+    <img src="https://via.placeholder.com/600x400" alt="Image 4">
+    <img src="https://via.placeholder.com/600x400" alt="Image 5">
+    <img src="https://via.placeholder.com/600x400" alt="Image 6">
+	    <img src="https://via.placeholder.com/600x400" alt="Image 1">
+    <img src="https://via.placeholder.com/600x400" alt="Image 2">
+    <img src="https://via.placeholder.com/600x400" alt="Image 3">
+    <img src="https://via.placeholder.com/600x400" alt="Image 4">
+    <img src="https://via.placeholder.com/600x400" alt="Image 5">
+    <img src="https://via.placeholder.com/600x400" alt="Image 6">
+	    <img src="https://via.placeholder.com/600x400" alt="Image 1">
+    <img src="https://via.placeholder.com/600x400" alt="Image 2">
+    <img src="https://via.placeholder.com/600x400" alt="Image 3">
+    <img src="https://via.placeholder.com/600x400" alt="Image 4">
+    <img src="https://via.placeholder.com/600x400" alt="Image 5">
+    <img src="https://via.placeholder.com/600x400" alt="Image 6">
+</div>
+
+<div class="fullscreen-modal" id="fullscreenModal">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <img id="fullscreenImage" src="" alt="Fullscreen Image">
+</div>
+
+<script>
+    const images = document.querySelectorAll('.gallery img');
+    const fullscreenModal = document.getElementById('fullscreenModal');
+    const fullscreenImage = document.getElementById('fullscreenImage');
+    const closeBtn = document.getElementById('closeBtn');
+
+    images.forEach(image => {
+        image.addEventListener('click', () => {
+            const src = image.getAttribute('src');
+            fullscreenImage.setAttribute('src', src);
+            fullscreenModal.style.display = 'flex';
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        fullscreenModal.style.display = 'none';
+    });
+
+    // Close modal if clicked outside the image
+    fullscreenModal.addEventListener('click', (e) => {
+        if (e.target === fullscreenModal) {
+            fullscreenModal.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
