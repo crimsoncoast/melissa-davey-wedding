@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melissa and Davey Wedding Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensure proper scaling on mobile -->
+    <title>Image Grid with Fullscreen View</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,13 +13,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #a9a9a9; 
-			color: white; /* Change text color to white for contrast */
+            background-color: #b8a8a8; /* Set background to black */
+            color: white; /* Change text color to white for contrast */
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Grid adjusts automatically */
             gap: 15px;
             padding: 20px;
             max-width: 1200px;
@@ -35,8 +35,8 @@
         }
 
         .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2); /* Slight white shadow for contrast */
         }
 
         /* Fullscreen modal styles */
@@ -46,7 +46,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
             display: none;
             justify-content: center;
             align-items: center;
@@ -71,30 +71,59 @@
             cursor: pointer;
         }
 
+        /* Media Query for Small Devices (Tablets, Phones) */
+        @media screen and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust the number of columns */
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .gallery img {
+                border-radius: 5px;
+            }
+
+            .close-btn {
+                font-size: 25px; /* Smaller close button */
+                top: 15px;
+                right: 15px;
+            }
+
+            .fullscreen-modal img {
+                max-width: 95%; /* Allow images to take up more space on mobile */
+                max-height: 95%;
+            }
+        }
+
+        /* Media Query for Very Small Devices (Phones in Portrait Mode) */
+        @media screen and (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Reduce columns for small screens */
+                gap: 5px;
+                padding: 5px;
+            }
+
+            .gallery img {
+                border-radius: 3px;
+            }
+
+            .close-btn {
+                font-size: 20px; /* Even smaller close button */
+                top: 10px;
+                right: 10px;
+            }
+
+            .fullscreen-modal img {
+                max-width: 100%; /* Full-width image on very small screens */
+                max-height: 100%;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="gallery">
     <img src="https://via.placeholder.com/600x400" alt="Image 1">
-    <img src="https://via.placeholder.com/600x400" alt="Image 2">
-    <img src="https://via.placeholder.com/600x400" alt="Image 3">
-    <img src="https://via.placeholder.com/600x400" alt="Image 4">
-    <img src="https://via.placeholder.com/600x400" alt="Image 5">
-    <img src="https://via.placeholder.com/600x400" alt="Image 6">
-	    <img src="https://via.placeholder.com/600x400" alt="Image 1">
-    <img src="https://via.placeholder.com/600x400" alt="Image 2">
-    <img src="https://via.placeholder.com/600x400" alt="Image 3">
-    <img src="https://via.placeholder.com/600x400" alt="Image 4">
-    <img src="https://via.placeholder.com/600x400" alt="Image 5">
-    <img src="https://via.placeholder.com/600x400" alt="Image 6">
-	    <img src="https://via.placeholder.com/600x400" alt="Image 1">
-    <img src="https://via.placeholder.com/600x400" alt="Image 2">
-    <img src="https://via.placeholder.com/600x400" alt="Image 3">
-    <img src="https://via.placeholder.com/600x400" alt="Image 4">
-    <img src="https://via.placeholder.com/600x400" alt="Image 5">
-    <img src="https://via.placeholder.com/600x400" alt="Image 6">
-	    <img src="https://via.placeholder.com/600x400" alt="Image 1">
     <img src="https://via.placeholder.com/600x400" alt="Image 2">
     <img src="https://via.placeholder.com/600x400" alt="Image 3">
     <img src="https://via.placeholder.com/600x400" alt="Image 4">
